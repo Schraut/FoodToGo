@@ -1,11 +1,15 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
+import { View } from "react-native";
 // Icons
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 // Custom spacing for elements
 import { Spacer } from "../../../components/spacer/spacer.component";
+// Typography
 import { Text } from "../../../components/typography/text.component";
+// Favorite Icon
+import { Favourite } from "../../../components/favourites/favourite.component";
 
 import {
   RestaurantCard,
@@ -36,7 +40,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <View>
+        <Favourite restaurant={restaurant} />
+        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      </View>
       <Info>
         <Text variant="label">{name}</Text>
         <Section>
